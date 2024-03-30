@@ -1,8 +1,3 @@
-#(©)CodeXBotz
-
-
-
-
 import os
 import asyncio
 from pyrogram import Client, filters, __version__
@@ -86,12 +81,9 @@ async def start_command(client: Client, message: Message):
         return
     else:
         reply_markup = InlineKeyboardMarkup(
-            [          
+            [ [ InlineKeyboardButton(" Source code ", url = "https://t.me/+NeqCUg-QDxo2Nzll")]
                 [
-                    InlineKeyboardButton("Source Code", url = "https://t.me/+NeqCUg-QDxo2Nzll")
-                ],
-                [
-                    InlineKeyboardButton("🤖 About Me", callback_data = "about"),
+                    InlineKeyboardButton(" 🤖 About Me", callback_data = "about"),
                     InlineKeyboardButton("🔒 Close", callback_data = "close")
                 ]
             ]
@@ -124,8 +116,9 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
     buttons = [ 
-        [ InlinekeyboardButton("Join Channel", url = "https://t.me/+8OvF7hDbhD0zNzQ0") ],
-        [
+        [   InlineKeyboardButton(
+                "Join Channel",
+                url = "https://t.me/Publicfille"),
             InlineKeyboardButton(
                 "Join Channel",
                 url = client.invitelink)
@@ -135,7 +128,7 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = '♻️ Try Again ♻️',
+                    text = 'Try Again',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
