@@ -81,9 +81,11 @@ async def start_command(client: Client, message: Message):
         return
     else:
         reply_markup = InlineKeyboardMarkup(
-            [ [ InlineKeyboardButton(" Source code ", url = "https://t.me/+NeqCUg-QDxo2Nzll")],
+            [ [ InlineKeyboardButton("Main Channel", url="https://t.me/InkaLinks"), 
+              InlineKeyboardButton("Source Code",url="https://t.me/+NeqCUg-QDxo2Nzll") 
+              ],[InlineKeyboardButton("Bot Channel",url="https://t.me/publicfille")],
                 [
-                    InlineKeyboardButton(" 🤖 About Me", callback_data = "about"),
+                    InlineKeyboardButton("🤖 About Me", callback_data = "about"),
                     InlineKeyboardButton("🔒 Close", callback_data = "close")
                 ]
             ]
@@ -112,10 +114,9 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 #=====================================================================================##
 
     
-    
-@Bot.on_message(filters.command('start') & filters.private)
+  @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    buttons = [ [ InlineKeyboardButton("Join Channel", url="https://t.me/Publicfille") ],
+    buttons = [  [ InlineKeyboardButton(text="Join Channel", url="https://t.me/Publicfille")],
         [
             InlineKeyboardButton(text="Join Channel", url=client.invitelink),
             InlineKeyboardButton(text="Join Channel", url=client.invitelink2),
@@ -125,7 +126,7 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
+                    text = '♻️ Try Again ♻️',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
